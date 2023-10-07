@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+
+<link href="../static/css/bootstrap.css" rel="stylesheet"
+	th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+	<div class="container">
+		<br>
+		<form th:action="@{/grabar}" th:object="${medicamento}" method="post">
+			<input type="hidden" th:field="*{id}">
+			<div class="form-group">
+				<label class="col-form-label col-sm-2">Nombres:</label> <input
+					th:field="*{nombre}" class="form-control" /><span
+					class="text-danger" th:if="${#fields.hasErrors('nombre')}"
+					th:errors="*{nombre}"></span>
+			 </div>
+			<div class="form-group">
+				<label class="col-form-label col-sm-2">Descripcion:</label> <input
+					th:field="*{descripcion}" class="form-control" /><span
+					class="text-danger" th:if="${#fields.hasErrors('descripcion')}"
+					th:errors="*{descripcion}"></span>
+			 </div>
+			 <div class="form-group">
+			 	<label class="col-form-label col-sm-2">Categoria:</label> <input
+					th:field="*{categoria}" class="form-control" />
+					<span
+					class="text-danger" th:if="${#fields.hasErrors('categoria')}"
+					th:errors="*{categoria}"></span>
+			 </div>
+			 <div class="form-group">
+			 	<label class="col-form-label col-sm-2">Precio:</label> <input
+					th:field="*{precio}" class="form-control" /><span
+					class="text-danger" th:if="${#fields.hasErrors('precio')}"
+					th:errors="*{precio}"></span>
+			 </div>
+			 <div class="form-group">
+			 	<label class="col-form-label col-sm-2">Stock:</label> <input
+					th:field="*{stock}" class="form-control" /><span
+					class="text-danger" th:if="${#fields.hasErrors('stock')}"
+					th:errors="*{stock}"></span>
+			 </div>
+			 <div class="form-group">
+			 	<label class="col-form-label col-sm-2">Fecha Vencimiento:</label> <input
+					th:field="*{fechaVencimiento}" class="form-control" type="date"/><span
+					class="text-danger" th:if="${#fields.hasErrors('fechaVencimiento')}"
+					th:errors="*{fechaVencimiento}"></span>
+			 </div>
+			 <div class="form-group">
+			 	<label class="col-form-label col-sm-2">Proveedor:</label> <input
+					th:field="*{proveedor}" class="form-control" /><span
+					class="text-danger" th:if="${#fields.hasErrors('proveedor')}"
+					th:errors="*{proveedor}"></span>
+			 </div>
+			 			 
+			<button type="submit" class="btn btn-primary">Grabar</button>
+		</form>
+
+	</div>
+</body>
+</html>
